@@ -74,8 +74,7 @@ require (
 	github.com/prometheus/client_golang v1.0.0
 	github.com/rboyer/safeio v0.2.1
 	github.com/ryanuber/columnize v2.1.0+incompatible
-	github.com/shirou/gopsutil v0.0.0-20181107111621-48177ef5f880
-	github.com/shirou/w32 v0.0.0-20160930032740-bb4de0191aa4 // indirect
+	github.com/shirou/gopsutil v2.20.6+incompatible
 	github.com/sirupsen/logrus v1.4.2 // indirect
 	github.com/stretchr/testify v1.5.1
 	go.opencensus.io v0.22.0 // indirect
