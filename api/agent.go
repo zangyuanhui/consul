@@ -162,7 +162,7 @@ const (
 	// MemberTagKeyReadReplica is the key used to indicate that the member is a read
 	// replica server (will remain a Raft non-voter).
 	// Read Replicas are a Consul Enterprise feature.
-	MemberTagKeyReadReplica = "nonvoter"
+	MemberTagKeyReadReplica = "read_replica"
 	// MemberTagValueReadReplica is the value of the MemberTagKeyReadReplica key when
 	// the member is in fact a read-replica. Any other value indicates that it is not.
 	// Read Replicas are a Consul Enterprise feature.

@@ -609,10 +609,10 @@ func TestBuilder_BuildAndValidate_ConfigFlagsAndEdgecases(t *testing.T) {
 				`-data-dir=` + dataDir,
 			},
 			patch: func(rt *RuntimeConfig) {
-				rt.NonVotingServer = true
+				rt.ReadReplica = true
 				rt.DataDir = dataDir
 			},
-			warns: enterpriseNonVotingServerWarnings,
+			warns: enterpriseReadReplicaWarnings,
 		},
 		{
 			desc: "-pid-file",
@@ -5314,6 +5314,7 @@ func TestFullConfig(t *testing.T) {
 			"raft_snapshot_threshold": 16384,
 			"raft_snapshot_interval": "30s",
 			"raft_trailing_logs": 83749,
+			"read_replica": true,
 			"reconnect_timeout": "23739s",
 			"reconnect_timeout_wan": "26694s",
 			"recursors": [ "63.38.39.58", "92.49.18.18" ],
@@ -6003,6 +6004,7 @@ func TestFullConfig(t *testing.T) {
 			raft_snapshot_threshold = 16384
 			raft_snapshot_interval = "30s"
 			raft_trailing_logs = 83749
+			read_replica = true
 			reconnect_timeout = "23739s"
 			reconnect_timeout_wan = "26694s"
 			recursors = [ "63.38.39.58", "92.49.18.18" ]
@@ -6748,7 +6750,7 @@ func TestFullConfig(t *testing.T) {
 		NodeID:                  types.NodeID("AsUIlw99"),
 		NodeMeta:                map[string]string{"5mgGQMBk": "mJLtVMSG", "A7ynFMJB": "0Nx6RGab"},
 		NodeName:                "otlLxGaI",
-		NonVotingServer:         true,
+		ReadReplica:             true,
 		PidFile:                 "43xN80Km",
 		PrimaryDatacenter:       "ejtmd43d",
 		PrimaryGateways:         []string{"aej8eeZo", "roh2KahS"},
@@ -7681,13 +7683,13 @@ func TestSanitize(t *testing.T) {
 		"NodeID": "",
 		"NodeMeta": {},
 		"NodeName": "",
-		"NonVotingServer": false,
 		"PidFile": "",
 		"PrimaryDatacenter": "",
 		"PrimaryGateways": [
 			"pmgw_foo=bar pmgw_key=baz pmgw_secret=boom pmgw_bang=bar"
 		],
 		"PrimaryGatewaysInterval": "0s",
+		"ReadReplica": false,
 		"RPCAdvertiseAddr": "",
 		"RPCBindAddr": "",
 		"RPCHandshakeTimeout": "0s",
