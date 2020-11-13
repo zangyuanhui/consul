@@ -349,6 +349,7 @@ func TestLeader_CheckServersMeta(t *testing.T) {
 		if service == nil {
 			r.Fatal("client not registered")
 		}
+		// DEPRECATED - remove non_voter in favor of read_replica in a future version of consul
 		if service.Meta["non_voter"] != "true" {
 			r.Fatalf("Expected to be non_voter == true, was: %s", service.Meta["non_voter"])
 		}
